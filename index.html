@@ -102,35 +102,44 @@
   </div>
 </div>
   </main>
-  <footer class="site-footer mt-5 py-4">
+<footer class="site-footer mt-5 py-4 bg-dark text-light">
   <div class="container">
     <div class="row">
+      <!-- Contact -->
       <div class="col-md-4 mb-3">
         <h5>Contact</h5>
         <ul class="list-unstyled">
-          <li>Email : <a href="mailto:contact@votresite.com">contact@votresite.com</a></li>
-          <li>Téléphone : <a href="tel:+33785728548">+33 0 00 00 00 00</a></li>
+          <li>Email : <a href="mailto:contact@votresite.com" class="text-light">contact@votresite.com</a></li>
+          <li>Téléphone : <a href="tel:+33785728548" class="text-light">+33 0 00 00 00 00</a></li>
         </ul>
       </div>
+
+      <!-- Newsletter -->
       <div class="col-md-4 mb-3">
         <h5>Newsletter</h5>
-        <form id="newsletterForm">
+        <form id="newsletterForm" aria-label="Formulaire d’inscription à la newsletter">
           <div class="mb-2">
-            <input type="email" class="form-control" placeholder="Votre e‑mail" aria-label="E‑mail newsletter" required>
+            <label for="newsletterEmail" class="visually-hidden">Adresse e-mail</label>
+            <input type="email" id="newsletterEmail" class="form-control" placeholder="Votre e‑mail" aria-label="Adresse e‑mail pour la newsletter" required>
           </div>
           <button type="submit" class="btn btn-light">S’inscrire</button>
         </form>
       </div>
+
+      <!-- Réseaux sociaux -->
       <div class="col-md-4 mb-3">
         <h5>Suivez-nous</h5>
-        <a href="#" aria-label="Instagram" class="me-2"><i class="fab fa-instagram"></i></a>
-        <a href="#" aria-label="Facebook" class="me-2"><i class="fab fa-facebook"></i></a>
-        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Instagram" class="me-2 text-light"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Facebook" class="me-2 text-light"><i class="fab fa-facebook"></i></a>
+        <a href="#" aria-label="Twitter" class="text-light"><i class="fab fa-twitter"></i></a>
       </div>
     </div>
-    <hr>
+
+    <hr class="bg-light">
+
     <div class="text-center small">
-      <a href="#" class="legal-link">Politique de confidentialité</a> • <a href="#" class="legal-link">Conditions d’utilisation</a><br>
+      <a href="#" class="legal-link text-light">Politique de confidentialité</a> •
+      <a href="#" class="legal-link text-light">Conditions d’utilisation</a><br>
       © <span id="currentYear"></span> Verbes Irréguliers. Tous droits réservés.
     </div>
   </div>

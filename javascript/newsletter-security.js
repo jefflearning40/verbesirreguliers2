@@ -21,14 +21,26 @@
         return;
       }
 
-      // suppression des retours à la ligne pour éviter les injections d’entêtes
+      // Suppression des retours à la ligne pour éviter les injections d’entêtes
       const safeEmail = raw.replace(/[\r\n%0a%0d]/gi, '');
 
-      // Ici vous pouvez envoyer safeEmail via fetch/AJAX vers votre serveur sécurisé
-      console.log('Email sécurisé à envoyer :', safeEmail);
-
-      alert('Merci pour votre inscription !');
-      form.reset();
+      // Envoi avec fetch() vers le serveur Node.js
+      fetch('http://localhost:3000/api/newsletter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email: safeEmail })
+      })
+      .then(response => response.json())
+      .then(data => {
+        alert(data.message); // Réponse du serveur Node
+        form.reset();
+      })
+      .catch(error => {
+        console.error('Erreur lors de l’envoi :', error);
+        alert('Une erreur est survenue. Veuillez réessayer plus tard.');
+      });
     });
   });
 })();
