@@ -35,3 +35,17 @@ const toggleBtn = document.getElementById("toggleTheme");
   // Appliquer thème clair par défaut
   body.classList.add("bg-light", "text-dark");
   cards.forEach(card => card.classList.add("bg-light", "text-dark"));
+
+  document.addEventListener("DOMContentLoaded", () => {
+  const el = document.getElementById("currentYear");
+  if (el) el.textContent = new Date().getFullYear();
+
+  const form = document.getElementById("newsletterForm");
+  if (form) {
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      alert("Merci pour votre inscription !");
+      form.reset();
+    });
+  }
+});

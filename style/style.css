@@ -38,6 +38,15 @@ body {
   color: #fff; /* texte blanc */
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+.site-footer {
+  background-color: #000;
+  color: #fff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.site-footer h5,
+.site-footer .small {
+  color: #fff;
+}
 .site-footer a {
   color: #fff;
   text-decoration: none;
@@ -45,19 +54,12 @@ body {
 .site-footer a:hover {
   text-decoration: underline;
 }
-.site-footer h5 {
-  font-weight: bold;
-  margin-bottom: 0.75rem;
-  color: #fff;
-}
 .site-footer ul {
-  padding: 0;
   list-style: none;
+  padding: 0;
 }
 .site-footer form .form-control {
   max-width: 250px;
-}
-.site-footer form input {
   background-color: #222;
   color: #fff;
   border: 1px solid #555;
@@ -75,5 +77,6 @@ body {
   font-size: 0.875rem;
   margin-top: 1rem;
 }
+
 
 
