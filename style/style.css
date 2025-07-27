@@ -1,0 +1,79 @@
+:root { /* thème clair */
+  --bg-color: #ffffff;
+  --text-color: #333;
+  --card-bg: #f8f9fa;
+  --card-text: #555;
+  --btn-bg: #6c757d;
+  --btn-hover: #495057;
+}
+
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #e4e4e4;
+  --card-bg: #343a40;
+  --card-text: #e4e4e4;
+  --btn-bg: #495057;
+  --btn-hover: #343a40;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.card {
+  background-color: var(--card-bg);
+  color: var(--card-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.theme-toggle {
+  background-color: var(--btn-bg);
+}
+.theme-toggle:hover {
+  background-color: var(--btn-hover);
+  transform: scale(1.05);
+}
+.site-footer {
+  background-color: #000; /* fond noir */
+  color: #fff; /* texte blanc */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.site-footer a {
+  color: #fff;
+  text-decoration: none;
+}
+.site-footer a:hover {
+  text-decoration: underline;
+}
+.site-footer h5 {
+  font-weight: bold;
+  margin-bottom: 0.75rem;
+  color: #fff;
+}
+.site-footer ul {
+  padding: 0;
+  list-style: none;
+}
+.site-footer form .form-control {
+  max-width: 250px;
+}
+.site-footer form input {
+  background-color: #222;
+  color: #fff;
+  border: 1px solid #555;
+}
+.site-footer form input::placeholder {
+  color: #ccc;
+}
+.site-footer form button {
+  margin-top: 0.5rem;
+}
+.site-footer hr {
+  border-color: #444;
+}
+.site-footer .small {
+  font-size: 0.875rem;
+  margin-top: 1rem;
+}
+
+
