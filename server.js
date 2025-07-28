@@ -14,7 +14,7 @@ const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',         // remplace par ton utilisateur
   password: '',         // ton mot de passe MySQL
-  database: 'nom_de_ta_base'  // remplace par le vrai nom
+  database: 'newletter'  // remplace par le vrai nom
 });
 
 // Route POST pour recevoir les e‑mails
