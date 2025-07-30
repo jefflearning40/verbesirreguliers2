@@ -1,42 +1,59 @@
 const toggleBtn = document.getElementById("toggleTheme");
-  const body = document.body;
-  const cards = document.querySelectorAll(".card");
+const body = document.body;
+const navbar = document.querySelector(".navbar");
+const cards = document.querySelectorAll(".card");
 
-  let darkMode = false;
+// Fonction qui applique un thème
+function applyTheme(isDark) {
+  if (isDark) {
+    body.classList.remove("bg-light", "text-dark");
+    body.classList.add("bg-dark", "text-white");
 
-  toggleBtn.addEventListener("click", () => {
-    darkMode = !darkMode;
+    navbar.classList.remove("bg-light", "navbar-light");
+    navbar.classList.add("bg-dark", "navbar-dark");
 
-    if (darkMode) {
-      body.classList.remove("bg-light", "text-dark");
-      body.classList.add("bg-dark", "text-white");
-      toggleBtn.textContent = "Activer le mode clair";
-      toggleBtn.classList.remove("btn-outline-secondary");
-      toggleBtn.classList.add("btn-outline-light");
+    toggleBtn.textContent = "Activer le mode clair";
+    toggleBtn.classList.remove("btn-outline-secondary");
+    toggleBtn.classList.add("btn-outline-light");
 
-      cards.forEach(card => {
-        card.classList.remove("bg-light", "text-dark");
-        card.classList.add("bg-secondary", "text-white");
-      });
-    } else {
-      body.classList.remove("bg-dark", "text-white");
-      body.classList.add("bg-light", "text-dark");
-      toggleBtn.textContent = "Activer le mode sombre";
-      toggleBtn.classList.remove("btn-outline-light");
-      toggleBtn.classList.add("btn-outline-secondary");
+    cards.forEach(card => {
+      card.classList.remove("bg-light", "text-dark");
+      card.classList.add("bg-secondary", "text-white");
+    });
+  } else {
+    body.classList.remove("bg-dark", "text-white");
+    body.classList.add("bg-light", "text-dark");
 
-      cards.forEach(card => {
-        card.classList.remove("bg-secondary", "text-white");
-        card.classList.add("bg-light", "text-dark");
-      });
-    }
-  });
+    navbar.classList.remove("bg-dark", "navbar-dark");
+    navbar.classList.add("bg-light", "navbar-light");
 
-  // Appliquer thème clair par défaut
-  body.classList.add("bg-light", "text-dark");
-  cards.forEach(card => card.classList.add("bg-light", "text-dark"));
+    toggleBtn.textContent = "Activer le mode sombre";
+    toggleBtn.classList.remove("btn-outline-light");
+    toggleBtn.classList.add("btn-outline-secondary");
 
-  document.addEventListener("DOMContentLoaded", () => {
+    cards.forEach(card => {
+      card.classList.remove("bg-secondary", "text-white");
+      card.classList.add("bg-light", "text-dark");
+    });
+  }
+
+  // Sauvegarder le choix dans localStorage
+  localStorage.setItem("darkMode", isDark ? "true" : "false");
+}
+
+// Charger le thème depuis localStorage
+const savedMode = localStorage.getItem("darkMode");
+const darkMode = savedMode === "true";
+applyTheme(darkMode);
+
+// Bouton toggle
+toggleBtn.addEventListener("click", () => {
+  const current = body.classList.contains("bg-dark");
+  applyTheme(!current);
+});
+
+// Contenu dynamique au chargement
+document.addEventListener("DOMContentLoaded", () => {
   const el = document.getElementById("currentYear");
   if (el) el.textContent = new Date().getFullYear();
 
